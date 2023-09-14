@@ -1,1 +1,5 @@
-Link Deploy: https://aula-ts-12-j2eu.onrender.com
+Link Deploy: 
+https://aula-ts-12-j2eu.onrender.com
+
+/health
+/today
