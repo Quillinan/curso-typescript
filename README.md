@@ -1,21 +1,21 @@
 # Curso-Typescript
 
-## Typescript :
+## Typescript
 
-- Instalar o TS + node
+- Instalar o TS + node :
   ```
   npm i -D typescript
   npm i ts-node
   ```
 
-- Inicializar o <code>tsconfig.ts</code>
+- Inicializar o <code>tsconfig.ts</code> :
   ```
   npx tsc --init
   ```
 
-## Path Mapping(@) :
+## Path Mapping(@)
 
-- Instalar tsconfig-paths
+- Instalar tsconfig-paths :
 
   ```
   npm i -D tsconfig-paths
@@ -23,7 +23,7 @@
   <details>   
     <summary> Configurações Path Mapping(@)</summary><br>
   
-    - Configurar <code>nodemon.js</code>
+    - Configurar <code>nodemon.js</code> :
 
     ```ts
     {
@@ -33,7 +33,7 @@
     }
     ```
   
-    - Configurar <code>tsconfig.ts</code>
+    - Configurar <code>tsconfig.ts</code> :
       
     ```ts
     {
@@ -57,18 +57,18 @@
     
   </details>
   
-- Instalar o tsc-alias:
+- Instalar o tsc-alias :
   ```
   npm i -D tsc-alias
   ```
-- Alterar script de build:
+- Alterar script de build :
   ```ts
   "build" : "tsc && tsc-alias"
   ```
   <details>
-    <summary>Configurações de build:</summary>
+    <summary>Configurações de build</summary>
   
-    - Configuração do <code>tsconfig.build.json</code>
+    - Configuração do <code>tsconfig.build.json</code> :
   
       ```ts
       {
@@ -77,3 +77,67 @@
       }
       ```
     </details>
+
+## ESLint
+
+- Instalar os pacotes do eslint :
+  ```
+  npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+  ```
+
+  <details>
+    <summary>Configurar os arquivos</summary>
+  
+    - Configuração do <code>tsconfig.build.json</code> :
+  
+      ```js
+      module.exports = {
+        parser: '@typescript-eslint/parser',
+        extends: [
+          'plugin:@typescript-eslint/recommended'
+        ],
+        parserOptions: {
+          ecmaVersion: 2020,
+          sourceType: 'module',
+        },
+        rules: {
+        },
+      };
+      ```
+  - Criar o script lint no <code>package.json</code> :
+  
+      ```js
+      "lint": "eslint ."
+      ```
+    </details>
+
+    <details>
+      <summary>Configurar para rodar nos commits</summary>
+    
+      - Instalar a dependência :
+    
+        ```
+        npm i lint-staged
+        ```
+    - Criar o arquivo <code>.lintstagedrc</code> :
+    
+        ```
+        {
+          "*": "npx eslint . --fix"
+        }
+        ```
+        
+    - Executar o <code>husky-init</code> : <code>npx husky-init && npm install</code>
+    
+    - Alterar o arquivo do pre-commit dentro da pasta <code>/.husky</code> :
+    
+        ```js
+        #!/usr/bin/env sh
+        . "$(dirname -- "$0")/_/husky.sh"
+        
+        npm run precommit
+        ```
+    
+      </details>
+
+    
