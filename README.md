@@ -88,7 +88,7 @@
   <details>
     <summary>Configurar os arquivos</summary>
   
-    - Configuração do <code>tsconfig.build.json</code> :
+    - Configuração do <code>.eslintrc.js</code> :
   
       ```js
       module.exports = {
@@ -119,7 +119,7 @@
         ```
         npm i lint-staged
         ```
-    - Criar o arquivo <code>.lintstagedrc</code> :
+    - Criar o arquivo <code>.lintstagedrc.js</code> :
     
         ```
         {
